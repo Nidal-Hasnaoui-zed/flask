@@ -17,3 +17,5 @@ app.add_url_rule('/job', 'job', job)   # and i dont understand this bro bc  just
 #and  i dont understand this ine bro !
 if __name__ == '__main__' : 
     app.run()
+    
+# ask chat gpt for you can understad this one !
