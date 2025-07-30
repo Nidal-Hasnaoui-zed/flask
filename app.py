@@ -9,6 +9,11 @@ app = Flask(__name__) # and this i dont understand it why we write it !
 def say_hey(): 
     return 'hey my name is nidal !'
 
+# lets add some other page !
+def job(): 
+    return 'my job is back end Dev !'
+app.add_url_rule('/job', 'job', job)   # and i dont understand this bro bc  just coppy it 
+
 #and  i dont understand this ine bro !
 if __name__ == '__main__' : 
     app.run()
