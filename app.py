@@ -1,4 +1,4 @@
-from flask import Flask , request
+from flask import Flask , request, Response 
 
 app = Flask(__name__)
 
@@ -47,6 +47,8 @@ def methods_test():
 @app.route('/testing')
 def testing(): 
     return 'hello world !' , 200    
+
+
 
 if __name__ == '__main__' : 
     app.run()
