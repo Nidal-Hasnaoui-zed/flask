@@ -42,6 +42,11 @@ def methods_test():
         return 'you use get Method !'
     else : 
         return 'you use post Method'
+    
+#lets try somthing i just see them : 
+@app.route('/testing')
+def testing(): 
+    return 'hello world !' , 200    
 
 if __name__ == '__main__' : 
     app.run()
