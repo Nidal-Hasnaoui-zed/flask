@@ -21,10 +21,18 @@ def greating(name):
 def summ(num1, num2) : 
     return f'the sum is : {num1 + num2}'
 
-#lets try somthing new bro !
+#handle urls !
 @app.route('/handle_params')
 def handle(): 
     return str(request.args)
+
+#handle urls 2 : 
+@app.route('/handle_parms2')
+def handle2(): 
+    greating = request.args['greating']
+    name = request.args.get('name')
+    return f'{greating}, {name}'
+
 
 if __name__ == '__main__' : 
     app.run()
