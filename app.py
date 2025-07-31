@@ -1,4 +1,4 @@
-from flask import Flask , request, Response 
+from flask import Flask , request, make_response
 
 app = Flask(__name__)
 
@@ -48,7 +48,13 @@ def methods_test():
 def testing(): 
     return 'hello world !' , 200    
 
-
+#lets try somthing i just see them again about responce : 
+@app.route('/responce')
+def responce() : 
+    responce = make_response()
+    responce.status_code = 1212
+    responce.headers['content-type'] = 'application/octet-stream'
+    return responce
 
 if __name__ == '__main__' : 
     app.run()
