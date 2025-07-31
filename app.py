@@ -1,4 +1,6 @@
-from flask import Flask # i dont understand what the meaning of this one !
+#importing flask class from Flask libary !
+#why ? : for you can build an simple web app !
+from flask import Flask 
 
 app = Flask(__name__) # and this i dont understand it why we write it !
 
