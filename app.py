@@ -29,9 +29,12 @@ def handle():
 #handle urls 2 : 
 @app.route('/handle_parms2')
 def handle2(): 
-    greating = request.args['greating']
-    name = request.args.get('name')
-    return f'{greating}, {name}'
+    if 'greating' in request.args.keys() and 'name' in request.args.keys():
+        greating = request.args['greating']
+        name = request.args.get('name')
+        return f'{greating}, {name}'
+    else : 
+        return 'Some params is messing !'
 
 
 if __name__ == '__main__' : 
