@@ -16,5 +16,10 @@ def page2():
 def greating(name): 
     return f'Hello, {name}'
 
+# lets try do some math functions : 
+@app.route('/add/<int:num1>/<int:num2>')
+def summ(num1, num2) : 
+    return f'the sum is : {num1 + num2}'
+
 if __name__ == '__main__' : 
     app.run()
