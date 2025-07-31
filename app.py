@@ -2,9 +2,11 @@
 #why ? : for you can build an simple web app !
 from flask import Flask 
 
-app = Flask(__name__) # and this i dont understand it why we write it !
+# create an instance of flask class bro !
+#why ? : bc if you run the file direclty , '__name__' will be '__main__'
+app = Flask(__name__)
 
-@app.route('/') # i have a simple idea this is the default url will show if you run the app !
+@app.route('/') 
 
 
 # this is a simple function return my name !
