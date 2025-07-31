@@ -35,7 +35,13 @@ def handle2():
         return f'{greating}, {name}'
     else : 
         return 'Some params is messing !'
-
+#methods : 
+@app.route('/method_tets', methods=['GET','POST'])
+def methods_test(): 
+    if request.method == 'GET' : 
+        return 'you use get Method !'
+    else : 
+        return 'you use post Method'
 
 if __name__ == '__main__' : 
     app.run()
