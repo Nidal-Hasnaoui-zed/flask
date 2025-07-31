@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask , request
 
 app = Flask(__name__)
 
@@ -20,6 +20,11 @@ def greating(name):
 @app.route('/add/<int:num1>/<int:num2>')
 def summ(num1, num2) : 
     return f'the sum is : {num1 + num2}'
+
+#lets try somthing new bro !
+@app.route('/handle_params')
+def handle(): 
+    return str(request.args)
 
 if __name__ == '__main__' : 
     app.run()
