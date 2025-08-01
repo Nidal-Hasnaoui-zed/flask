@@ -26,5 +26,16 @@ def get_sum(num1,num2):
 def handel_parms(): 
     return str(request.args)
 
+# let me show you how you can do it with better method bro !
+@app.route('/handel_parms2')
+def handel_parms2(): 
+    if 'greating' in request.get.keys() and 'name' in request.get.keys(): 
+        greating  = request.args['greating']
+        name = request.args.get('name')
+        return f'{greating}, {name}'
+    else : 
+        return 'Some params is Messing !'
+         
+
 if __name__ == '__main__': 
     app.run(debug=True)
