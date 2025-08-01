@@ -1,11 +1,17 @@
-<h1>About Me</h1>
-<p>Name : {{name}}</p>
-<p>Age : {{age}}</p>
-<p> Dream Job  : {{dream_job}}</p>
-<ul>
-    {% for lang in my_langs %}
-        <li {% if lang == 'php' %} style='color:red' {% endif %}>
-            {{ lang }}
-        </li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %} 
+
+{% block title %} index1 {% endblock  %}
+
+{% block content %}
+    <h1>About Me</h1>
+    <p>Name : {{name}}</p>
+    <p>Age : {{age}}</p>
+    <p> Dream Job  : {{dream_job}}</p>
+    <ul>
+        {% for lang in my_langs %}
+            <li {% if lang == 'php' %} style='color:red' {% endif %}>
+                {{ lang }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock  %}
