@@ -17,9 +17,17 @@ def index1():
 #filters : 
 @app.route('/other')
 def other(): 
-    some_text = 'nidal'
+    some_text = 'nidal '
     return render_template('other.html', some_text=some_text)
 
+# lets create our filters here 
+@app.template_filter('revise_string')
+def revise_string(s): 
+    return s[::-1]
+# lets ceate other filter !
+@app.template_filter('reapete')
+def reapete(s,times=2): 
+    return s * times
 if __name__ == '__main__' : 
     app.run(debug=True)
     
