@@ -2,3 +2,10 @@
 <p>Name : {{name}}</p>
 <p>Age : {{age}}</p>
 <p> Dream Job  : {{dream_job}}</p>
+<ul>
+    {% for lang in my_langs %}
+        <li>
+            {{ lang }}
+        </li>
+    {% endfor %}
+</ul>
