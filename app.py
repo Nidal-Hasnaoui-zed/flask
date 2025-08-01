@@ -16,5 +16,11 @@ def add_html():
 def greating(name):
     return f'Welcome in our Website {name}'
 
+# add a math function : 
+@app.route('/math/<int:num1>/<int:num2>')
+def get_sum(num1,num2):
+    return f'the sum is {num1 + num2}' 
+    
+
 if __name__ == '__main__': 
     app.run(debug=True)
