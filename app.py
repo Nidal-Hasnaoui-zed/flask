@@ -25,7 +25,7 @@ def other():
 @app.template_filter('revise')
 def revise(s): 
     return s[::-1]
-
+#rediretcion 
 @app.route('/redirection')
 def redir(): 
     return redirect(url_for('index1'))
