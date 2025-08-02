@@ -1,0 +1,12 @@
+<h1>About me !</h1>
+<p> Name : {{ name }} </p>
+<p> Last Name : {{ lname }} </p>
+<p> Age : {{ age }} </p>
+<p> Dream job : {{ job }} </p>
+<ul>
+    {% for i in langs %}
+    <li {% if i == 'php' %} style='color:green' {% endif %}>
+        {{ i }}
+    </li>
+     {% endfor %}
+</ul>
