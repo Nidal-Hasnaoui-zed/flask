@@ -20,7 +20,11 @@ def index1():
 @app.route('/other')
 def other(): 
     some_text = 'nidal'
-    return render_template('other.hmtl' , some_text=some_text)
+    return render_template('other.html' , some_text=some_text)
+
+@app.template_filter('revise')
+def revise(s): 
+    return s[::-1]
 
 if __name__ == '__main__': 
     app.run(debug=True)
