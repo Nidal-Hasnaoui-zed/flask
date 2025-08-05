@@ -9,3 +9,9 @@ def index():
     elif request.method == 'POST' : 
         user_name = request.form.get('username')
         password = request.form.get('pwd')
+        
+    if user_name == 'nidal' and password == 'nidal' : 
+        return 'Weclome bro !'
+    else : 
+        return 'Try again password or user name is not valid !'
+    
