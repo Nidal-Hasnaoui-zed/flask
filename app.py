@@ -15,3 +15,6 @@ def index():
     else : 
         return 'Try again password or user name is not valid !'
     
+
+if __name__ == '__main__' : 
+    app.run(debug=True)
