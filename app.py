@@ -13,6 +13,7 @@ def set_data():
     session['job'] = 'backend'
     return render_template('index.html', message='Session data Set !')
 
+#get data func !
 @app.route('/get_data')
 def get_data(): 
     if 'username' in session.keys() and 'job' in session.keys() :
