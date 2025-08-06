@@ -1,12 +1,12 @@
 from flask import Flask , render_template , session , make_response
 
 app = Flask(__name__ ,template_folder='templates')
-
+# main func !
 @app.route('/')
 def index():
     return render_template('index.html', message='index')
 
-
+#set data func !
 @app.route('/set_data')
 def set_data(): 
     session['username'] = 'nidal'
