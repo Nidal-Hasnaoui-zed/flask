@@ -28,6 +28,6 @@ def get_data():
 def clear_session(): 
     session.clear()
     return render_template('index.html',message='Session cleared.')    
-  
+#make app run !
 if __name__ == '__main__'  : 
     app.run(debug=True)
