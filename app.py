@@ -11,7 +11,7 @@ def index():
 def set_data(): 
     session['username'] = 'nidal'
     session['job'] = 'backend'
-    return render_template('index.html', message='Set data !')
+    return render_template('index.html', message='Session data Set !')
 
 
  
