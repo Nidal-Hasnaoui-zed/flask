@@ -6,6 +6,14 @@ app = Flask(__name__ ,template_folder='templates')
 def index():
     return render_template('index.html', message='index')
 
+
+@app.route('/set_data')
+def set_data(): 
+    session['username'] = 'nidal'
+    session['job'] = 'backend'
+    return render_template('index.html', message='Set data !')
+
+
  
 if __name__ == '__main__'  : 
     app.run(debug=True)
