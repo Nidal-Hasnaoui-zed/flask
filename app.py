@@ -13,7 +13,15 @@ def set_data():
     session['job'] = 'backend'
     return render_template('index.html', message='Session data Set !')
 
-
+@app.route('/get_data')
+def get_data(): 
+    if 'username' in session.keys() and 'job' in session.keys() :
+        username = session['usename']
+        job = session['job']
+        return render_template('index.html', message=f'the user name is {username} and job is {job}')
+    else : 
+        return render_template('index.html', message='No session found !')
+        
  
 if __name__ == '__main__'  : 
     app.run(debug=True)
