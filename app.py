@@ -26,6 +26,14 @@ def get_data() :
     else : 
         return render_template('index.html', message='no session found !')
     
-#
+#clear session !
+@app.route('/clear_session')
+def session_clear() : 
+    session.clear()
+    render_template('index.html', message='all session was cleard !')
+    
+   
+   
+   
 if __name__ == '__main__': 
     app.run(debug=True)
