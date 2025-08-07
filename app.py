@@ -1,4 +1,4 @@
-from flask import Flask , render_template , session , make_response
+from flask import Flask , render_template , session , make_response, request
 
 app = Flask(__name__ ,template_folder='templates')
 # main func !
@@ -35,7 +35,11 @@ def set_cookie():
     response.set_cookie('cookie_name', 'cookie_value')
     return response
     
-     
+@app.route('/get_cookie')
+def get_cookie():
+    cookie_value = request.cookies['cookie_name']
+    return render_template('index.html', message=f'Cookie Value: {cookie_value}')
+
 #make app run !
 if __name__ == '__main__'  : 
     app.run(debug=True)
