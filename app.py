@@ -40,6 +40,13 @@ def get_cookie():
     cookie_value = request.cookies['cookie_name']
     return render_template('index.html', message=f'Cookie Value: {cookie_value}')
 
+@app.route('/remove_cookie')
+def remove_cookie():
+    response = make_response(render_template('index.html', message='Cookie removed.'))
+    response.set_cookie('cookie_name', '', expires=0)
+    return response
+
+
 #make app run !
 if __name__ == '__main__'  : 
     app.run(debug=True)
