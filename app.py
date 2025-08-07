@@ -6,7 +6,7 @@ app.secret_key = 'nidal'
 
 @app.route('/')
 def index(): 
-    return render_template('index.html', message='this is the html page !')
+    return render_template('index.html', message='this is the index page !')
 
 if __name__ == '__main__': 
     app.run(debug=True)
