@@ -1,4 +1,4 @@
-from flask import Flask , render_template , session
+from flask import Flask , render_template , session, make_response
 
 app = Flask(__name__ , template_folder='templates')
 
@@ -31,7 +31,13 @@ def get_data() :
 def session_clear() : 
     session.clear()
     render_template('index.html', message='all session was cleard !')
-    
+
+#set a coookie !
+@app.route('/set_cookie ')
+def set_cookie(): 
+    response = make_response(render_template('index.html', message='creating a cookie'))
+    response.set_cookie('Cookie_name', 'Cookie_value'); 
+    return response
    
    
    
