@@ -13,3 +13,12 @@ def  register_routes(app):
         
         return '<br>'.join([repr(p) for p in people]) 
 
+    @app.route('/add', methods=['POST'])
+    def add_person(): 
+        name = request.form.get('name')
+        age = request.form.get('age')
+        job = request.form.get('job')
+        
+        if not name : 
+            return 'name is nessecary !', 400 
+        
