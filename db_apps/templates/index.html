@@ -1,25 +1,26 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People List</title>
+</head>
+<body>
+    <h1>All People</h1>
+    {% if people %}
+        <ul>
+            {% for p in people %}
+                <li>{{ p.name }} - {{ p.age }} - {{ p.job }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No people in the database yet!</p>
+    {% endif %}
 
-{% block title  %}Index page !{% endblock title  %}
-
-{% block body %}
-    <h1>{{ message }}</h1>
-
-    {% extends "base.html" %}
-    {% block title %}Index Page{% endblock %}
-
-    {% block content %}
-    <h1>Hello World</h1>
-    <p>{{ message }}</p>
-
-    <a href="{{ url_for('set_data') }}">Set Session Data</a><br>
-    <a href="{{ url_for('get_data') }}">Get Session Data</a><br>
-    <a href="{{ url_for('clear_session') }}">Clear Session Data</a><br>
-    <a href="{{ url_for('set_cookie') }}">Set Cookie</a><br>
-    <a href="{{ url_for('get_cookie') }}">Get Cookie</a><br>
-    <a href="{{ url_for('remove_cookie') }}">Remove Cookie</a><br>
-    <a href="{{ url_for('login') }}">Login</a><br>
-    {% endblock %}
-
-{% endblock body %}
-
+    <h2>Add New Person</h2>
+    <form method="POST" action="/add">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="age" placeholder="Age">
+        <input type="text" name="job" placeholder="Job">
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
