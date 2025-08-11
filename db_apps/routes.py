@@ -33,8 +33,8 @@ def register_routes(app):
         people = Person.query.all()
         return render_template('index.html' , people=people)
     
-    @app.route('/deatails/<pid>')
-    def detail(pid):
+    @app.route('/details/<pid>')
+    def details(pid):
         person =  Person.query.filter(Person.pid == pid).first()
         return render_template('details.html', person = person)
 
