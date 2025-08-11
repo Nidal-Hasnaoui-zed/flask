@@ -4,19 +4,6 @@
             "previewLimit": 50,
             "driver": "SQLite",
             "name": "nidal",
-            "group": "nidal",
-            "database": "${workspaceFolder:flask_learn}/db_apps/instance/testdb.db"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "nidaldb ",
-            "database": "${workspaceFolder:flask_learn}/db_apps/instance/testdb.db"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "db_of_me",
             "database": "${workspaceFolder:flask_learn}/db_apps/instance/testdb.db"
         }
     ],
