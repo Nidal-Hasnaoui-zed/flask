@@ -12,6 +12,7 @@ def create_app():
     Migrate(app , db)
     
     # after you create the route file imprte hem here !
-    
+    from routes import  register_routes
+    register_routes(app)
     
     return app  
