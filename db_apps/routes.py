@@ -19,6 +19,13 @@ def register_routes(app):
             
             person = Person(name=name, age=age, job=job)
             
+            db.session.add(person)
+            db.session.commit()
+            
+            people = Person.query.all()
+            return render_template('index.html' , people=people)
+            
+            
 
 
     # this is advenced level bro !
