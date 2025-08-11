@@ -3,7 +3,7 @@ from models import Person
 from app import db  # import db only when needed (safe here)
 
 def register_routes(app):
-    @app.route('/')
+    @app.route('/', methods=['POST', 'GET'])
     def index():
         people = Person.query.all()
         # quick plain text response (you can replace with render_template later)
