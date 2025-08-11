@@ -5,12 +5,14 @@ from app import db  # import db only when needed (safe here)
 def register_routes(app):
     @app.route('/', methods=['POST', 'GET'])
     def index():
-        people = Person.query.all()
-        # quick plain text response (you can replace with render_template later)
-        if not people:
-            return "No people in DB yet"
-        return render_template('index.html' , people=people)
-
+        if request.method == 'GET' : 
+            people = Person.query.all()
+            # quick plain text response (you can replace with render_template later)
+            if not people:
+                return "No people in DB yet"
+            return render_template('index.html' , people=people)
+        
+            
 
 
     # this is advenced level bro !
