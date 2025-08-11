@@ -12,7 +12,7 @@ def register_routes(app):
                 return "No people in DB yet"
             return render_template('index.html' , people=people)
         
-        elif request.method == 'GET' : 
+        elif request.method == 'POST' : 
             name = request.form.get('name')
             age = int(request.form.get('age'))
             job = request.form.get('job')
