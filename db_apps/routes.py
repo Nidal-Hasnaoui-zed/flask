@@ -9,7 +9,7 @@ def register_routes(app):
         # quick plain text response (you can replace with render_template later)
         if not people:
             return "No people in DB yet"
-        return render_template('index.html')
+        return render_template('index.html' , people=people)
 
 
 
