@@ -25,20 +25,43 @@
     </form>
 
     <script type="text/javascript">
-        function delete_person(pid) {
-            fetch('{{ url_for("delete", pid=pid) }}' + pid, {
-                method: 'DELETE'
-            }).then(response => {
-                if (response.ok) {
-                    window.location.reload();
-                } else {
-                    console.error('Failed to delete item with pid: ', pid);
+
+                //  Youtuber Method bro ! 
+
+        // function delete_person(pid) {
+              //fetch('{{ url_for("delete", pid=pid) }}' + pid, {
+                //method: 'DELETE'
+            //}).then(response => {
+               // if (response.ok) {
+                   // window.location.reload();
+                //} else {
+                    //console.error('Failed to delete item with pid: ', pid);
+                //}
+            // })
+            // .catch(error => {
+                // console.error('Error during fetching:', error);
+            // });
+        //   } 
+
+               //  Chapt gpt Method !
+
+                function delete_person(pid) {
+                    fetch(`{{ url_for("delete", pid=0) }}`.replace("0", pid), {
+                        method: 'DELETE'
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.reload();
+                        } else {
+                            console.error('Failed to delete item with pid: ', pid);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error during fetching:', error);
+                    });
                 }
-            })
-            .catch(error => {
-                console.error('Error during fetching:', error);
-            });
-        }
+
+
     </script>
 
 
