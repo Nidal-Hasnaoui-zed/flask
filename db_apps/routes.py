@@ -25,7 +25,13 @@ def register_routes(app):
             people = Person.query.all()
             return render_template('index.html' , people=people)
             
-            
+    @app.route('/delete/<pid>', methods=['DELETE'])
+    def delete(pid): 
+        Person.query.filter(Person.pid == pid).delete()
+        db.session.commit() 
+        
+        people = Person.query.all()
+        return render_template('index.html' , people=people)
 
 
     # this is advenced level bro !
