@@ -4,65 +4,6 @@
 
 {% block content %}
 
-    <h1>Index Page</h1>
-    <ul>
-        {% for person in people %}
-            <li>{{ person.name }}  <button onclick="delete_person({{ person.pid }})">Delete</button><a href="{{ url_for('details', pid=person.pid)}}">Details</a></li>
-        {% endfor %}    
-    <ul>
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-    <form action="{{ url_for('index') }}" method='POST'>
-        <input type='text' name='name' placeholder='Name' required>    <br>
-        <input type='number' name='age' placeholder='Age'>   <br> 
-        <input type='text' name='job' placeholder='Job'><br>
-        <input type='submit' value='Send'>    
-    </form>
-
-    <script type="text/javascript">
-
-                //  Youtuber Method bro ! 
-
-        // function delete_person(pid) {
-              //fetch('{{ url_for("delete", pid=pid) }}' + pid, {
-                //method: 'DELETE'
-            //}).then(response => {
-               // if (response.ok) {
-                   // window.location.reload();
-                //} else {
-                    //console.error('Failed to delete item with pid: ', pid);
-                //}
-            // })
-            // .catch(error => {
-                // console.error('Error during fetching:', error);
-            // });
-        //   } 
-
-               //  Chapt gpt Method !
-
-                function delete_person(pid) {
-                    fetch(`{{ url_for("delete", pid=0) }}`.replace("0", pid), {
-                        method: 'DELETE'
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            window.location.reload();
-                        } else {
-                            console.error('Failed to delete item with pid: ', pid);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error during fetching:', error);
-                    });
-                }
-
-
-    </script>
-
-
+<h1>Index Page</h1>
+   
 {% endblock content %}
