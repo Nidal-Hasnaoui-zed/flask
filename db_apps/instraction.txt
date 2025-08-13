@@ -5,3 +5,8 @@ this command is so important in fask after you create your db !
 1- flask db init
 2- flask db migrate -m "Initial migration"
 3-flask db upgrade
+
+
+and for you can work with login and register you must to do this command line ! 
+
+pip install flask-login flask-bcrypt
