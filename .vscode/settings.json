@@ -5,6 +5,12 @@
             "driver": "SQLite",
             "name": "nidal",
             "database": "${workspaceFolder:flask_learn}/db_apps/instance/testdb.db"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "user_login",
+            "database": "${workspaceFolder:flask_learn}/user_login/instance/testdb.db"
         }
     ],
     "sqltools.useNodeRuntime": true
