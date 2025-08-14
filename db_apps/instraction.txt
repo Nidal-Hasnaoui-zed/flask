@@ -10,3 +10,48 @@ this command is so important in fask after you create your db !
 and for you can work with login and register you must to do this command line ! 
 
 pip install flask-login flask-bcrypt
+
+
+btw if you found this problem :
+C:\Users\hp\Desktop\flask_learn\mine>flask db init
+Creating directory C:\Users\hp\Desktop\flask_learn\mine\migrations ...  done
+Creating directory C:\Users\hp\Desktop\flask_learn\mine\migrations\versions ...  done
+Generating C:\Users\hp\Desktop\flask_learn\mine\migrations\alembic.ini ...  done
+Generating C:\Users\hp\Desktop\flask_learn\mine\migrations\env.py ...  done
+Generating C:\Users\hp\Desktop\flask_learn\mine\migrations\README ...  done
+Generating C:\Users\hp\Desktop\flask_learn\mine\migrations\script.py.mako ...  done
+Please edit configuration/connection/logging settings in C:\Users\hp\Desktop\flask_learn\mine\migrations\alembic.ini before proceeding.
+
+C:\Users\hp\Desktop\flask_learn\mine>flask db migrate -m "Initial migration"
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+ERROR [flask_migrate] Error: Can't locate revision identified by 'cae26e7f3dab'
+
+C:\Users\hp\Desktop\flask_learn\mine>flask db upgrade
+INFO  [alembic.runtime.migration] Context impl MySQLImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+ERROR [flask_migrate] Error: Can't locate revision identified by 'cae26e7f3dab'
+
+thsi is his solution : 
+
+
+# 1. احذف مجلد migrations
+
+        rm -rf migrations
+
+# 2. احذف جدول alembic_version من MySQL
+
+        DROP TABLE alembic_version;
+
+# 3. أعد تهيئة المايجريشن
+
+        flask db init
+
+# 4. أنشئ مـايجريشن جديد
+
+    flask db migrate -m "Initial migration"
+
+# 5. طبّق المايجريشن
+
+    flask db upgrade
+
