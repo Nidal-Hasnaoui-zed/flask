@@ -6,10 +6,21 @@ from flask_login import login_user, logout_user, current_user , login_required
 def register_routes(app, db , bcrypt ):
     @app.route('/')
     def index():
-        if current_user.is_authenticated : 
-            return str(current_user.username)
-        else : 
-            return 'No user is logged in '
+        render_template('index.html')
+        
+    @app.route('/signup', methods=['GET', 'POST'])  
+    def singup(): 
+        if request.method == 'GET'  : 
+            return render_template('signup.html')
+        elif request.method == 'POST' : 
+            pass 
+        
+    @app.route('/login', methods=['GET', 'POST'])  
+    def login(): 
+        if request.method == 'GET'  : 
+            return render_template('login.html')
+        elif request.method == 'POST' : 
+            pass 
    
    
     @app.route('/login/<uid>')
