@@ -11,11 +11,27 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/login_db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+    app.secret_key = 'nidal'
+
     db.init_app(app)
-    migrate = Migrate(app, db)
+    
+    login_manager = LoginManager() 
+    login_manager.init_app(app)
+    
+    from models import User
+    
+    @login_manager.user_loader
+    
+    def log_user(uid):
+        return  User.query.get(uid)
+        
+        
+    bcrypt = Bcrypt(app)
 
     # Import routes after db is defined to avoid circular import issues
     from routes import register_routes
-    register_routes(app)
+    register_routes(app, db , bcrypt)
+    
+    migrate = Migrate(app, db)
 
     return app
