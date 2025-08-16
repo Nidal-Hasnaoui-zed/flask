@@ -37,7 +37,7 @@ def register_routes(app, db , bcrypt ):
 
             if bcrypt.check_password_hash(user.password, password):
                 login_user(user)
-                return render_template('index.html')
+                return redirect(url_for('index'))
             else:
                 return 'Failed'
    
