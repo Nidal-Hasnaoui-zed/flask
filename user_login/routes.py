@@ -45,4 +45,4 @@ def register_routes(app, db , bcrypt ):
     @app.route('/logout')
     def logout():
         logout_user()
-        return 'Success !'
+        return redirect(url_for('index'))
