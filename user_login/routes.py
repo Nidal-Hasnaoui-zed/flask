@@ -31,8 +31,15 @@ def register_routes(app, db , bcrypt ):
         if request.method == 'GET'  : 
             return render_template('login.html')
         elif request.method == 'POST' : 
-            pass 
-   
+            username = request.form.get('username')
+            password = request.form.get('password')
+            user = User.query.filter(User.username == username).first()
+
+            if bcrypt.check_password_hash(user.password, password):
+                login_user(user)
+                return render_template('index.html')
+            else:
+                return 'Failed'
    
     @app.route('/login/<uid>')
     def login(uid):
