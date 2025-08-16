@@ -9,7 +9,7 @@ def register_routes(app, db , bcrypt ):
         render_template('index.html')
         
     @app.route('/signup', methods=['GET', 'POST'])  
-    def singup(): 
+    def signup(): 
         if request.method == 'GET'  : 
             return render_template('signup.html')
         elif request.method == 'POST' : 
