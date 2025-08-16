@@ -6,7 +6,7 @@ from flask_login import login_user, logout_user, current_user , login_required
 def register_routes(app, db , bcrypt ):
     @app.route('/')
     def index():
-        render_template('index.html')
+        return render_template('index.html')
         
     @app.route('/signup', methods=['GET', 'POST'])  
     def signup(): 
@@ -21,8 +21,8 @@ def register_routes(app, db , bcrypt ):
             user = User(username=username , password=hashed_password)     
             
             db.session.add(user)
-            db.sesion.commit()   
-            
+            db.session.commit()
+  
             return redirect(url_for('index'))
             
             
@@ -41,11 +41,6 @@ def register_routes(app, db , bcrypt ):
             else:
                 return 'Failed'
    
-    @app.route('/login/<uid>')
-    def login(uid):
-        user = User.query.get(uid)
-        login_user(user)
-        return 'Success !'
     
     @app.route('/logout')
     def logout():
