@@ -46,3 +46,9 @@ def register_routes(app, db , bcrypt ):
     def logout():
         logout_user()
         return redirect(url_for('index'))
+    
+
+    @app.route('sec')
+    @login_required 
+    def seq() : 
+        return 'just and test'
