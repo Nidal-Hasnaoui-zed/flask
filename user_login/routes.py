@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect ,url_for
 from models import User
 from app import db  # import db only when needed (safe here)
 from flask_login import login_user, logout_user, current_user , login_required
@@ -13,8 +13,19 @@ def register_routes(app, db , bcrypt ):
         if request.method == 'GET'  : 
             return render_template('signup.html')
         elif request.method == 'POST' : 
-            pass 
-        
+            username = request.form.get('username')
+            password = request.form.get('password')
+            # we will hash the password : 
+            hashed_password = bcrypt.generate_password_hash(password)
+            
+            user = User(username=username , password=hashed_password)     
+            
+            db.session.add(user)
+            db.sesion.commit()   
+            
+            return redirect(url_for('index'))
+            
+            
     @app.route('/login', methods=['GET', 'POST'])  
     def login(): 
         if request.method == 'GET'  : 
